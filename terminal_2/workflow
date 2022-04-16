@@ -1,0 +1,5 @@
+data 		-> account and password list
+def_data	-> save default data for main_user and main_dir
+handle.py 	-> preparing every needed thing at first
+main.py		-> main program to run
+terminal.py	-> provide every command written
