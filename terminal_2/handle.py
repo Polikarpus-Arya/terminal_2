@@ -159,10 +159,12 @@ def login():
 					print()
 
 def root():
+	
+	global root_user
 	print()
 	password = input("Password for root user: ")
 
-	if password == handle.root_user.get("root"):
+	if password == root_user.get("root"):
 
 		global is_root, main_user, temp_user
 		

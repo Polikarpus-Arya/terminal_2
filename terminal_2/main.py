@@ -35,6 +35,10 @@ def prompt(com):
 	elif com[0] == 'user':
 		terminal.con_user(com)
 
+	# tree
+	elif com[0] == 'tree':
+		terminal.tree()
+
 	# command not found :(
 	else:
 		handle.err("Command not found :(")
@@ -42,7 +46,9 @@ def prompt(com):
 def work():
 	print(time.strftime("[%H:%M:%S] ", time.localtime()), end = '')
 	print(handle.main_user + " ~/" + handle.build_path())
-	com = list(input("\u03BB ").split(" ")) # lambda
+	com = list(input("\u03BB ").split(" ")) # lambda character
+
+	com = [command for command in com if command != '']
 
 	# enter root mode
 	if com[0] == 'sudo':
@@ -83,6 +89,15 @@ def work():
 		else:
 			handle.err("Too many arguments to run this command!")
 			handle.err("Required arguments: 0")
+
+	elif com[0] == 'find':
+
+		if len(com) == 1:
+			handle.err("Expected 1 argument. Available: 0")
+		elif len(com) == 2:
+			terminal.find_files(com[1])
+		else:
+			handle.err("Expected 1 argument!")
 
 	else:
 		prompt(com)
