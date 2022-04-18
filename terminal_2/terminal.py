@@ -284,6 +284,12 @@ def tree():
 
 def find_files(file_to_find):
 
+	if len(file_to_find) != 2:
+		handle.err("Expected 1 argument. Available: " + str(len(file_to_find) - 1))
+		return
+
+	file_to_find = file_to_find[1]
+
 	found_in = []
 
 	def search_dfs(par):

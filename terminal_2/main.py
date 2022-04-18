@@ -39,6 +39,9 @@ def prompt(com):
 	elif com[0] == 'tree':
 		terminal.tree()
 
+	elif com[0] == 'find':
+		terminal.find_files(com)
+
 	# command not found :(
 	else:
 		handle.err("Command not found :(")
@@ -89,15 +92,6 @@ def work():
 		else:
 			handle.err("Too many arguments to run this command!")
 			handle.err("Required arguments: 0")
-
-	elif com[0] == 'find':
-
-		if len(com) == 1:
-			handle.err("Expected 1 argument. Available: 0")
-		elif len(com) == 2:
-			terminal.find_files(com[1])
-		else:
-			handle.err("Expected 1 argument!")
 
 	else:
 		prompt(com)
